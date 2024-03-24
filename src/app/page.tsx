@@ -6,6 +6,10 @@ const Home: React.FC = () => {
   const [tag, setTag] = useState<string>("");
   const [chests, setChests] = useState<ChestType[]>([]);
 
+  const baseUrl = process.env.NEXT_PUBLIC_CR_BASE_URL;
+  const token = process.env.NEXT_PUBLIC_CR_ACCESS_KEY;
+  console.log(baseUrl, token);
+
   const submitTagName = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
@@ -26,7 +30,9 @@ const Home: React.FC = () => {
     <main className="flex flex-col items-center min-h-screen p-8">
       <h1 className="text-3xl font-bold mb-8">クラロワ 宝箱予測</h1>
       <form onSubmit={submitTagName} className="mb-4">
-        <label htmlFor="user-tag" className="block mb-1">プレイヤータグを入力</label>
+        <label htmlFor="user-tag" className="block mb-1">
+          プレイヤータグを入力
+        </label>
         <input
           type="text"
           id="user-tag"
@@ -36,7 +42,12 @@ const Home: React.FC = () => {
           onChange={(e) => setTag(e.target.value)}
         />
         <p className="text-sm text-gray-500 mt-1"># は外してね！</p>
-        <button type="submit" className="bg-blue-500 text-white px-4 py-2 mt-2 rounded hover:bg-blue-600 transition duration-300">予測する</button>
+        <button
+          type="submit"
+          className="bg-blue-500 text-white px-4 py-2 mt-2 rounded hover:bg-blue-600 transition duration-300"
+        >
+          予測する
+        </button>
       </form>
       {chests.length !== 0 && (
         <div>
