@@ -13,10 +13,13 @@ export const GET = async (req: Request, res: NextResponse) => {
         Authorization: `Bearer ${token}`,
       },
     });
-    console.log(res.json);
+
     if (res.ok) {
       return NextResponse.json(
-        { message: "Success", res, tag },
+        {
+          message: "Success",
+          chests: await res.json(),
+        },
         { status: 200 }
       );
     } else {
