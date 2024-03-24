@@ -6,6 +6,7 @@ export const GET = async (req: Request, res: NextResponse) => {
   try {
     const baseUrl = process.env.NEXT_PUBLIC_CR_BASE_URL;
     const token = process.env.NEXT_PUBLIC_CR_ACCESS_KEY;
+    console.log(baseUrl, token);
     const res = await fetch(`${baseUrl}/players/%23${tag}/upcomingchests`, {
       headers: {
         "cache-control": "max-age=60",
