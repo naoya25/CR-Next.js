@@ -19,7 +19,6 @@ const Home: React.FC = () => {
       setChests(items);
     } catch (error) {
       console.error("Error fetching data:", error);
-      // Handle error state or display an error message
     }
   };
 
